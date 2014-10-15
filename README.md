@@ -1,4 +1,4 @@
-Simple one shot modal
+Simple one shot modal using jQuery
 ==============
 Use class 'modal-closer' in the HTML to display the 'close' link in the top right of the modal container, remove class if not needed!
 <br>The CSS handles the content/position etc for the 'close' and the fade animation.
