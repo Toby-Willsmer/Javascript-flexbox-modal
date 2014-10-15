@@ -32,6 +32,11 @@
   right: 10px;
 }
 
+.modal-close:hover {
+  cursor: pointer;
+}
+
+
 /* other prefixes will be needed for animation. I only added -webkit- for this demo */
 /* open */
 .modal.open {
