@@ -1,0 +1,66 @@
+.modal       { display: none; }
+.modal.open,
+.modal.close { display: block; } /* classes fired by js for animation control */
+
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-container {
+  max-width: 300px;
+  margin-left: -150px;
+  padding: 20px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  z-index: 999;
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.65);
+  background: #fff;
+}
+
+.modal-close:before { /* 'close' within modal - content/position etc */
+  content: "close";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* other prefixes will be needed for animation. I only added -webkit- for this demo */
+/* open */
+.modal.open {
+  -webkit-animation: modal-open 0.2s;
+  animation: modal-open 0.2s;
+}
+
+@-webkit-keyframes modal-open {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+@keyframes modal-open {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+/* close */
+.modal.close {
+  -webkit-animation: modal-close 0.2s;
+  animation: modal-close 0.2s;
+}
+
+@-webkit-keyframes modal-close {
+  0%    { opacity: 1; }
+  100%  { opacity: 0; }
+}
+
+@keyframes modal-close {
+  0%    { opacity: 1; }
+  100%  { opacity: 0; }
+}
