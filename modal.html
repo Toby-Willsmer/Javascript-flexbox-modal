@@ -3,40 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Toby Willsmer">
-  <title>One shot modal</title>
+  <title>Modal - javascript - flexbox</title>
   <link rel="stylesheet" href="modal.css" />
   <style rel="type/css">
-  /* page styles only */
-  html { font-family: arial; line-height: 1.5;}
-  ul { padding-left: 20px; }
-  .wrapper { max-width: 1000px; margin: 0 auto; }
+    /* page styles only */
+    html { font-family: arial; line-height: 1.5; }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h1>A simple one shot modal</h1>
-    <p>This uses JQuery to trigger the modal and adds the 'close' trigger to the container.</p>
+
+  <header>
+    <!-- header content -->
+  </header>
+  <main>
+    <h1>Modal using Javascript and Flexbox</h1>
     <ul>
-      <li>Use class 'modal-closer' in the HTML to display the 'close' in the top right of the modal, remove class if not needed!</li>
-      <li>The css handles the content for the 'close' and the fade animation.</li>
+      <li>CSS handles the animations for the show and hide.</li>
       <li>The escape key also closes the modal.</li>
-      <li>You'll need to add prefixes for the animation, this demo only includes -webkit-</li>
+      <li>You'll need to add prefixes for the animation.</li>
     </ul>
+    <button class="modal-trigger">OPEN MODAL</button>
+  </main>
+  <footer>
+    <!-- footer content -->
+  </footer>
 
-    <!-- modal -->
-    <button class="modal-link">OPEN MODAL</button>
-    <div class="modal modal-container modal-closer">
-      <p>Use class 'modal-closer' to display the close in the top right, remove class if not needed</p>
-      <button class="modal-close-link">Cancel link</button>
+  <!-- modal - must sit outside main page layout -->
+  <div class="flex align-center align-vert modal modal--align">
+    <div class="modal__container">
+      <a class="modal__close modal__close--x" aria-hidden="true">&#x2715;</a>
+      <p>Although we have an 'X' to close we should always have a button/link to cancel the modal</p>
+      <button class="modal__close">Cancel link</button>
     </div>
-    <!-- modal -->
-
   </div>
+  <!-- / modal -->
 
-  <!-- modal background -->
-  <div class="modal modal-bg"></div>
-
-  <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="modal.js"></script>
+
 </body>
 </html>

@@ -1,52 +1,52 @@
-.modal       { display: none; }
-.modal.open,
-.modal.close { display: block; } /* classes fired by js for animation control */
+/* demo only */
+.flex { display: flex; }
+.align-center { justify-content: center; }
+.align-vert,.align-vert.align-center { align-items: center; }
+/* end demo */
 
-.modal-bg {
+.modal { display: none; }
+.modal--show,
+.modal--hide { display: flex; } /* classes fired by js for animation control */
+
+/* This is on the wrapper for the whole modal */
+.modal--align {
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 0;
   left: 0;
-  z-index: 998;
-  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
-.modal-container {
-  max-width: 300px;
-  margin-left: -150px;
+.modal__container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 800px;
   padding: 20px;
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  z-index: 999;
-  border-radius: 5px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.65);
+  margin: 12px;
   background: #fff;
 }
 
-.modal-close:before { /* 'close' within modal - content/position etc */
-  content: "close";
+/* The .modal__close class is used in js but is modified '--x' here */
+.modal__close--x {
+  font-size: 30px; /* this is only because we use unicode for the X in this case */
   position: absolute;
-  top: 10px;
+  top: 3px;
   right: 10px;
 }
 
-.modal-close:hover {
+/* As there is no href to avoid the hash being added to the URL when clicked we add a pointer */
+/* This 'x' is hidden from screen readers as there is an accessible close button in the modal */
+.modal__close--x:hover {
   cursor: pointer;
 }
 
-
-/* other prefixes will be needed for animation. I only added -webkit- for this demo */
-/* open */
-.modal.open {
-  -webkit-animation: modal-open 0.2s;
-  animation: modal-open 0.2s;
-}
-
-@-webkit-keyframes modal-open {
-  0%    { opacity: 0; }
-  100%  { opacity: 1; }
+/* Animations */
+/* Open */
+.modal.modal--show {
+  animation: modal-open 0.3s;
 }
 
 @keyframes modal-open {
@@ -54,15 +54,9 @@
   100%  { opacity: 1; }
 }
 
-/* close */
-.modal.close {
-  -webkit-animation: modal-close 0.2s;
-  animation: modal-close 0.2s;
-}
-
-@-webkit-keyframes modal-close {
-  0%    { opacity: 1; }
-  100%  { opacity: 0; }
+/* Close */
+.modal.modal--hide {
+  animation: modal-close 0.3s;
 }
 
 @keyframes modal-close {
